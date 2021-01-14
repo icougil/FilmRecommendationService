@@ -14,18 +14,16 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class RecommendationServiceShould {
 
-    private RecommendationService recommendationService;
-
     @Mock
     private FilmRepository filmRepository;
 
     @Test
-    void return_a_list_of_films_by_tag_ordered_by_average_rate() {
+    void return_a_list_of_films_by_genre_ordered_by_average_rate() {
         RecommendationService recommendationService = new RecommendationService(filmRepository);
 
         List<Film> expectedFilms = Arrays.asList(FilmsObjectMother.MATRIX, FilmsObjectMother.STAR_WARS_EPISODE_IV);
-        when(filmRepository.findByTag("science-fiction", SortOrder.AVERAGE_RATE)).thenReturn(expectedFilms);
+        when(filmRepository.findByGenre("science-fiction", SortOrder.AVERAGE_RATE)).thenReturn(expectedFilms);
 
-        assertThat(recommendationService.filmByTag("science-fiction")).isEqualTo(expectedFilms);
+        assertThat(recommendationService.filmByGenre("science-fiction")).isEqualTo(expectedFilms);
     }
 }

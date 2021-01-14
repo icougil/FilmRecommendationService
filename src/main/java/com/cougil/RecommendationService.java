@@ -10,7 +10,7 @@ public class RecommendationService {
         this.filmRepository = filmRepository;
     }
 
-    public List<Film> filmByTag(String tag) {
-        return filmRepository.findByTag(tag, SortOrder.AVERAGE_RATE);
+    public List<Film> filmByGenre(String genre) {
+        return filmRepository.findByGenre(genre, SortOrder.AVERAGE_RATE);
     }
 }

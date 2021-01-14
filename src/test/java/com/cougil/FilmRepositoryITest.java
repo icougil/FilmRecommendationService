@@ -31,10 +31,10 @@ class FilmRepositoryITest {
     }
 
     @Test
-    void should_return_list_of_films_filtered_by_tag_and_ordered_by_average() {
+    void should_return_list_of_films_filtered_by_genre_and_ordered_by_average() {
         FilmRepository filmRepository = new FilmRepository(getDataSource());
         List<Film> expectedFilms = Arrays.asList(FilmsObjectMother.MATRIX, FilmsObjectMother.STAR_WARS_EPISODE_IV);
-        assertThat(filmRepository.findByTag("science-fiction", SortOrder.AVERAGE_RATE)).isEqualTo(expectedFilms);
+        assertThat(filmRepository.findByGenre("science-fiction", SortOrder.AVERAGE_RATE)).isEqualTo(expectedFilms);
     }
 
     private DataSource getDataSource() {
