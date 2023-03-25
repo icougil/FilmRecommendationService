@@ -10,21 +10,26 @@ repositories {
 }
 
 dependencies {
-    def junitJupiterVersion = '5.7.0'
-    def testContainersVersion = '1.15.1'
-    def mockitoVersion = '3.7.0'
-    testImplementation "org.junit.jupiter:junit-jupiter:$junitJupiterVersion"
-    testCompile "org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion"
-    testCompile 'org.assertj:assertj-core:3.18.1'
-    testCompile "org.mockito:mockito-core:$mockitoVersion"
-    testCompile "org.mockito:mockito-junit-jupiter:$mockitoVersion"
+    def junitJupiterVersion = '5.9.2'
+    def testContainersVersion = '1.17.6'
+    def mockitoVersion = '5.2.0'
+	def assertJVersion = '3.24.2'
+	def hikariVersion = '5.0.1'
+	def postgresqlVersion = '42.6.0'
 
-    testCompile "org.testcontainers:testcontainers:$testContainersVersion"
-    testCompile "org.testcontainers:junit-jupiter:$testContainersVersion"
-    testCompile "org.testcontainers:postgresql:$testContainersVersion"
-    testCompile 'com.zaxxer:HikariCP:3.4.5'
+    testImplementation 'org.junit.jupiter:junit-jupiter:'+junitJupiterVersion
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:'+junitJupiterVersion
 
-    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.18'
+	testImplementation 'org.assertj:assertj-core:' + assertJVersion
+    testImplementation 'org.mockito:mockito-core:' + mockitoVersion
+    testImplementation 'org.mockito:mockito-junit-jupiter:' + mockitoVersion
+
+    testImplementation 'org.testcontainers:testcontainers:' + testContainersVersion
+    testImplementation 'org.testcontainers:junit-jupiter:' + testContainersVersion
+    testImplementation 'org.testcontainers:postgresql:' + testContainersVersion
+
+	testImplementation 'com.zaxxer:HikariCP:' + hikariVersion
+	implementation group: 'org.postgresql', name: 'postgresql', version: postgresqlVersion
 }
 
 test {
